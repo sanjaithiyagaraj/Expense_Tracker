@@ -265,5 +265,5 @@ Built for **CTS Digital Nurture Java Full Stack Developer Interview Preparation*
 ---
 
 <p align="center">
-  Made with ❤️ using Spring Boot & React
+  Made using Spring Boot & React
 </p>
