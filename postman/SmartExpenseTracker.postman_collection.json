@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "Smart Expense Tracker",
+		"description": "Complete API collection for the Smart Expense Tracker application built with Spring Boot 3 and React.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Expense APIs",
+			"item": [
+				{
+					"name": "GET All Expenses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses?sort=date-desc",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"],
+							"query": [
+								{
+									"key": "sort",
+									"value": "date-desc"
+								}
+							]
+						},
+						"description": "Retrieve all expenses sorted by date in descending order."
+					},
+					"response": []
+				},
+				{
+					"name": "GET Expense By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "1"]
+						},
+						"description": "Retrieve a single expense by its ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Expense",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Lunch\",\n\t\"category\": \"Food\",\n\t\"amount\": 250.00,\n\t\"date\": \"2026-07-15\",\n\t\"notes\": \"Team lunch\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses"]
+						},
+						"description": "Create a new expense record."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Expense",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Updated Lunch\",\n\t\"category\": \"Food\",\n\t\"amount\": 300.00,\n\t\"date\": \"2026-07-15\",\n\t\"notes\": \"Updated team lunch\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "1"]
+						},
+						"description": "Update an existing expense by its ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Expense",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "1"]
+						},
+						"description": "Delete an expense by its ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Expenses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/search?title=lunch",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "search"],
+							"query": [
+								{
+									"key": "title",
+									"value": "lunch"
+								}
+							]
+						},
+						"description": "Search expenses by title keyword."
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Expenses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/filter?category=Food&month=7&year=2026",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "filter"],
+							"query": [
+								{
+									"key": "category",
+									"value": "Food"
+								},
+								{
+									"key": "month",
+									"value": "7"
+								},
+								{
+									"key": "year",
+									"value": "2026"
+								}
+							]
+						},
+						"description": "Filter expenses by category, month, and year."
+					},
+					"response": []
+				},
+				{
+					"name": "Export CSV",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/expenses/export/csv",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "expenses", "export", "csv"]
+						},
+						"description": "Export all expenses as a CSV file download."
+					},
+					"response": []
+				}
+			],
+			"description": "All CRUD and utility endpoints for managing expenses."
+		},
+		{
+			"name": "Budget APIs",
+			"item": [
+				{
+					"name": "GET Budget",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/budget",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "budget"]
+						},
+						"description": "Retrieve the current monthly budget."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Budget",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"monthlyBudget\": 10000.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/budget",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "budget"]
+						},
+						"description": "Update the monthly budget amount."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for managing the monthly budget."
+		},
+		{
+			"name": "Dashboard API",
+			"item": [
+				{
+					"name": "GET Dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/dashboard?month=7&year=2026",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "dashboard"],
+							"query": [
+								{
+									"key": "month",
+									"value": "7"
+								},
+								{
+									"key": "year",
+									"value": "2026"
+								}
+							]
+						},
+						"description": "Retrieve dashboard summary including total spent, budget remaining, and category-wise breakdown for a given month and year."
+					},
+					"response": []
+				}
+			],
+			"description": "Dashboard summary endpoint with spending analytics."
+		}
+	]
+}
